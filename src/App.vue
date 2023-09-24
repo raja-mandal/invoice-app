@@ -24,8 +24,8 @@ export default {
 }
 </script>
 
-<template v-if="invoicesLoaded">
-  <div>
+<template>
+  <div v-if="invoicesLoaded">
     <div class="app flex flex-column">
       <Navigation />
       <div class="app-content flex flex-column">

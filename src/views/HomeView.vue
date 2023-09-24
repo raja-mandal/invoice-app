@@ -10,22 +10,22 @@ export default {
     }
   },
   components: {
-    Invoice,
+    Invoice
   },
   methods: {
-    ...mapMutations(["TOGGLE_INVOICE"]),
+    ...mapMutations(['TOGGLE_INVOICE']),
 
     newInvoice() {
-      this.TOGGLE_INVOICE();
-      console.log("add invoice");
+      this.TOGGLE_INVOICE()
+      // console.log("add invoice");
     },
 
     toggleFilterMenu() {
-      this.filterDown = !this.filterDown;
+      this.filterDown = !this.filterDown
     }
   },
   computed: {
-    ...mapState(['invoiceData']),
+    ...mapState(['invoiceData'])
   }
 }
 </script>
@@ -59,8 +59,14 @@ export default {
       </div>
     </div>
 
-    <div>
+    <div v-if="invoiceData.length > 0">
       <Invoice v-for="(invoice, index) in invoiceData" :invoice="invoice" :key="index" />
+    </div>
+
+    <div v-else class="empty flex flex-column">
+      <img src="@/assets/empty-screen.svg" alt="" />
+      <h3>There is nothing here</h3>
+      <p>Create a new invoice by clicking the new invoice button and get started</p>
     </div>
   </div>
 </template>
