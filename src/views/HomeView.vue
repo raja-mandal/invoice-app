@@ -6,7 +6,8 @@ export default {
   data() {
     return {
       // filterMenu: true // this could be "filterDown - filterMenu"
-      filterDown: null
+      filterDown: null,
+      
     }
   },
   components: {
